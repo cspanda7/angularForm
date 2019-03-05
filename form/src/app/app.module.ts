@@ -10,7 +10,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule,FormsModule,
+    BrowserModule,FormsModule,   
+    //BsDatepickerModule.forRoot(),
+    // DatepickerModule.forRoot() ,
     NgMultiSelectDropDownModule
   ],
   providers: [],

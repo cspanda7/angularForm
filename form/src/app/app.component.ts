@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
 
   constructor() { }
 
-
+  myDateValue=new Date();
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
@@ -56,6 +56,8 @@ export class AppComponent implements OnInit {
   onSelectAll(items: any) {
     console.log(items);
   }
+  onSubmit(){
 
+  }
 
 }

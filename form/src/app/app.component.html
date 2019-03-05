@@ -14,23 +14,31 @@
               <hr class="mb-4">
             </div>
             <div class="card-body">
-              <form autocomplete="off" class="form" role="form">
+              <form autocomplete="off" class="form" role="form" 
+              (ngSubmit)="onSubmit(form)" #form="ngForm">
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label">First name</label>
                   <div class="col-lg-9">
-                    <input class="form-control" type="text" value="Jane">
+                    <input class="form-control" placeholder="Jane" 
+                     required
+                     type="text"
+                     [(ngModel)]="model.firstName"
+                     name="txtFirstName"
+                     >
+                  </div>
+                  <div [hidden]="name.valid || name.pristine"class="alert alert-danger">Name is required
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                   <div class="col-lg-9">
-                    <input class="form-control" type="text" value="Bishop">
+                    <input class="form-control" placeholder="Bishop" type="text" name="txtLastName">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label">Email</label>
                   <div class="col-lg-9">
-                    <input class="form-control" type="email" value="email@gmail.com">
+                    <input class="form-control" placeholder="Bishop@gmail.com" type="email" name="txtEmail">
                   </div>
                 </div>
             
@@ -48,16 +56,25 @@
                     </ng-multiselect-dropdown>
                   </div>
                 </div>
+                <!-- <div class="form-group row">
+                  <label class="col-lg-3 col-form-label form-control-label">Date Of Birth</label>
+                  <div class="col-lg-9">
+                      <input type="text"
+                      placeholder="Datepicker"
+                      class="form-control"
+                      bsDatepicker>
+                  </div>
+                </div> -->
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label">Username</label>
                   <div class="col-lg-9">
-                    <input class="form-control" type="text" value="janeuser">
+                    <input class="form-control" type="text"  placeholder="user1" name="txtUserId" >
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-lg-3 col-form-label form-control-label">Password</label>
                   <div class="col-lg-9">
-                    <input class="form-control" type="password" value="11111122333"> 
+                    <input class="form-control" type="password"  placeholder="*****" name="txtPassword"> 
                       <small class="form-text text-muted" id="passwordHelpBlock">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</small>
                   </div>
                 </div>
@@ -67,12 +84,7 @@
                     <input class="form-control" type="password" value="11111122333">
                   </div>
                 </div> -->
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label form-control-label">Education Docs</label>
-                  <div class="col-lg-9">
-                    <!-- <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/> -->
-                  </div>
-                </div>
+                
                 <!-- <div class="col-md-9" style="margin-bottom: 40px">
  
                   <h3>Upload queue</h3>
