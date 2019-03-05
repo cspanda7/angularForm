@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class AppComponent implements OnInit {
 
-
-  constructor() { }
+@ViewChild('form') form:NgForm
+  constructor(private userService:UserService) { }
 
   myDateValue=new Date();
   dropdownList = [];
@@ -36,10 +38,10 @@ export class AppComponent implements OnInit {
       { item_id: 6, item_text: 'Diploma' },
       { item_id: 7, item_text: 'Others' }
     ];
-    this.selectedItems = [
-      { item_id: 3, item_text: 'Post Graduate' },
-      { item_id: 4, item_text: 'M.Phil.' }
-    ];
+    // this.selectedItems = [
+    //   { item_id: 3, item_text: 'Post Graduate' },
+    //   { item_id: 4, item_text: 'M.Phil.' }
+    // ];
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'item_id',
@@ -57,7 +59,8 @@ export class AppComponent implements OnInit {
     console.log(items);
   }
   onSubmit(){
-
+    this.userService.addUsers(this.form.value);
+    console.log(this.form.value);
   }
 
 }

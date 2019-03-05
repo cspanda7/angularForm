@@ -3,11 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown'
 import { AppComponent } from './app.component';
+import {UserListComponent} from './user-list.component'
+//services
+import { UserService } from './user.service';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,FormsModule,   
@@ -15,7 +20,7 @@ import { AppComponent } from './app.component';
     // DatepickerModule.forRoot() ,
     NgMultiSelectDropDownModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
