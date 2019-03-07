@@ -12,22 +12,10 @@ export class AppComponent implements OnInit {
 
 @ViewChild('form') form:NgForm
   constructor(private userService:UserService) { }
-
   myDateValue=new Date();
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
-  //public uploader:FileUploader = new FileUploader({url: URL});
-  public hasBaseDropZoneOver:boolean = false;
-  public hasAnotherDropZoneOver:boolean = false;
- 
-  public fileOverBase(e:any):void {
-    this.hasBaseDropZoneOver = e;
-  }
- 
-  public fileOverAnother(e:any):void {
-    this.hasAnotherDropZoneOver = e;
-  }
   ngOnInit() {
     this.dropdownList = [
       { item_id: 1, item_text: 'Secondary' },
